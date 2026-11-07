@@ -1,0 +1,462 @@
+/* Preferência visual e legibilidade do Seasons. */
+.app-shell {
+  min-height: 100vh;
+  color: var(--ink);
+  background: var(--canvas);
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+  color: #e4ebf6;
+  background: #0d1524;
+  --navy: #dce7fa;
+  --navy-deep: #cbdaf2;
+  --blue: #58c3ee;
+  --blue-light: #173247;
+  --ink: #e4ebf6;
+  --muted: #b5c1d5;
+  --line: #34425a;
+  --paper: #172338;
+  --canvas: #0d1524;
+  --green: #85c99a;
+  --shadow: 0 18px 54px rgba(0, 0, 0, .32);
+  --history-primary-maximum: #ffc064;
+  --history-primary-minimum: #62c8ef;
+  --history-comparison-maximum: #d5a0f1;
+  --history-comparison-minimum: #ff91ad;
+  --history-primary-humidity: #62c8ef;
+  --history-comparison-humidity: #d5a0f1;
+  --history-primary-precipitation: #62c8ef;
+  --history-comparison-precipitation: #ffc064;
+  --history-primary-marker: #62c8ef;
+  --history-comparison-marker: #d5a0f1;
+}
+
+:root[data-theme='dark'] body {
+  color: var(--ink);
+  background: var(--canvas);
+}
+
+.app-shell[data-theme='dark'] .home-page,
+.app-shell[data-theme='dark'] .workspace-page {
+  color: var(--ink);
+  background: var(--canvas);
+}
+
+.app-shell[data-theme='dark'] .site-header,
+.app-shell[data-theme='dark'] .workspace-header {
+  border-color: #263858;
+  background: #101c56;
+}
+
+.theme-toggle {
+  display: inline-flex;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 8px 11px;
+  border: 1px solid rgba(255, 255, 255, .52);
+  border-radius: 7px;
+  color: #fff;
+  background: rgba(255, 255, 255, .12);
+  font-size: 13px;
+  font-weight: 700;
+  white-space: nowrap;
+  transition: background .18s ease, border-color .18s ease;
+}
+
+.theme-toggle:hover,
+.theme-toggle:focus-visible {
+  border-color: rgba(255, 255, 255, .9);
+  outline: none;
+  background: rgba(255, 255, 255, .2);
+}
+
+.theme-toggle svg { flex: 0 0 auto; }
+
+/* Supporting text uses a fluid scale with a readable mobile floor. */
+.eyebrow { font-size: clamp(12px, .9vw, 13px); }
+.search-caption,
+.site-footer__credits,
+.workspace-footer,
+.tips-disclaimer,
+.forecast-note,
+.chart-footnote,
+.history-data-note,
+.report-title p,
+.report-title__source,
+.chart-legend,
+.history-stat small,
+.history-stat em,
+.weather-facts__units,
+.map-panel__caption,
+.period-fieldset legend,
+.period-fieldset label,
+.history-filters__bottom p,
+.history-intro__badge,
+.forecast-heading p,
+.forecast-heading__timezone {
+  font-size: clamp(12px, .9vw + 8px, 14px);
+}
+.metric-card__copy small { font-size: clamp(12px, .8vw + 8px, 13px); }
+.tip-card h3 { font-size: clamp(14px, .7vw + 10px, 15px); }
+.tip-card p { font-size: clamp(13px, .75vw + 9px, 14px); line-height: 1.6; }
+.tips-data-note {
+  margin: 12px 0 0;
+  padding: 10px 12px;
+  border: 1px solid #dce4ee;
+  border-radius: 8px;
+  color: #53627a;
+  background: #f5f8fc;
+  font-size: clamp(12px, .75vw + 9px, 14px);
+  line-height: 1.55;
+}
+.forecast-card__day,
+.forecast-card__condition,
+.forecast-card__open,
+.metric-switch button,
+.clear-button,
+.period-fieldset input,
+.history-filters__top strong,
+.compare-toggle strong,
+.compare-toggle small,
+.chart-card__heading h3 {
+  font-size: clamp(12px, .7vw + 8px, 14px);
+}
+
+/* Dark surfaces; brand headers remain Seasons navy. The map selects a matching
+   dark cartographic layer instead of applying an artificial filter to light tiles. */
+.app-shell[data-theme='dark'] .search-form,
+.app-shell[data-theme='dark'] .suggestion-panel,
+.app-shell[data-theme='dark'] .experience-card,
+.app-shell[data-theme='dark'] .weather-facts,
+.app-shell[data-theme='dark'] .metric-card,
+.app-shell[data-theme='dark'] .map-panel,
+.app-shell[data-theme='dark'] .tips-panel,
+.app-shell[data-theme='dark'] .forecast-card,
+.app-shell[data-theme='dark'] .history-intro__badge,
+.app-shell[data-theme='dark'] .history-filters,
+.app-shell[data-theme='dark'] .history-stat,
+.app-shell[data-theme='dark'] .history-chart-card,
+.app-shell[data-theme='dark'] .history-loading,
+.app-shell[data-theme='dark'] .map-loading {
+  border-color: var(--line);
+  color: var(--ink);
+  background-color: var(--paper);
+}
+
+.app-shell[data-theme='dark'] .data-note,
+.app-shell[data-theme='dark'] .history-empty,
+.app-shell[data-theme='dark'] .tip-card {
+  border-color: var(--line);
+  color: var(--ink);
+  background: #1b2a40;
+}
+
+.app-shell[data-theme='dark'] .search-section__heading h1,
+.app-shell[data-theme='dark'] .experience-card h3,
+.app-shell[data-theme='dark'] .weather-facts__heading h2,
+.app-shell[data-theme='dark'] .tips-panel__heading h2,
+.app-shell[data-theme='dark'] .forecast-heading h2,
+.app-shell[data-theme='dark'] .history-intro h2,
+.app-shell[data-theme='dark'] .history-filters__top > div,
+.app-shell[data-theme='dark'] .history-filters__top strong,
+.app-shell[data-theme='dark'] .history-stat strong,
+.app-shell[data-theme='dark'] .report-title h3,
+.app-shell[data-theme='dark'] .chart-card__heading h3,
+.app-shell[data-theme='dark'] .forecast-card,
+.app-shell[data-theme='dark'] .forecast-card__date,
+.app-shell[data-theme='dark'] .metric-card__copy strong,
+.app-shell[data-theme='dark'] .tip-card h3,
+.app-shell[data-theme='dark'] .history-empty strong,
+.app-shell[data-theme='dark'] .history-loading strong,
+.app-shell[data-theme='dark'] .workspace-title-row h1 {
+  color: var(--navy);
+}
+
+.app-shell[data-theme='dark'] .search-section__heading p,
+.app-shell[data-theme='dark'] .suggestion-option__copy small,
+.app-shell[data-theme='dark'] .suggestion-panel__status,
+.app-shell[data-theme='dark'] .search-caption,
+.app-shell[data-theme='dark'] .site-footer__credits,
+.app-shell[data-theme='dark'] .workspace-footer,
+.app-shell[data-theme='dark'] .workspace-full-location,
+.app-shell[data-theme='dark'] .weather-tabs button,
+.app-shell[data-theme='dark'] .weather-facts__units,
+.app-shell[data-theme='dark'] .metric-card__copy small,
+.app-shell[data-theme='dark'] .map-panel__caption,
+.app-shell[data-theme='dark'] .tip-card p,
+.app-shell[data-theme='dark'] .tips-disclaimer,
+.app-shell[data-theme='dark'] .forecast-heading p,
+.app-shell[data-theme='dark'] .forecast-heading__timezone,
+.app-shell[data-theme='dark'] .forecast-card__day,
+.app-shell[data-theme='dark'] .forecast-card__condition,
+.app-shell[data-theme='dark'] .forecast-note,
+.app-shell[data-theme='dark'] .history-intro p,
+.app-shell[data-theme='dark'] .history-intro__badge,
+.app-shell[data-theme='dark'] .period-fieldset legend,
+.app-shell[data-theme='dark'] .period-fieldset label,
+.app-shell[data-theme='dark'] .history-filters__bottom p,
+.app-shell[data-theme='dark'] .report-title p,
+.app-shell[data-theme='dark'] .report-title__source,
+.app-shell[data-theme='dark'] .history-stat small,
+.app-shell[data-theme='dark'] .history-stat em,
+.app-shell[data-theme='dark'] .chart-legend,
+.app-shell[data-theme='dark'] .chart-legend small,
+.app-shell[data-theme='dark'] .chart-footnote,
+.app-shell[data-theme='dark'] .history-data-note,
+.app-shell[data-theme='dark'] .history-empty p,
+.app-shell[data-theme='dark'] .history-loading p,
+.app-shell[data-theme='dark'] .compare-toggle small {
+  color: #b7c3d8;
+}
+
+.app-shell[data-theme='dark'] .search-form input,
+.app-shell[data-theme='dark'] .period-fieldset input,
+.app-shell[data-theme='dark'] .clear-button,
+.app-shell[data-theme='dark'] .metric-switch,
+.app-shell[data-theme='dark'] .metric-switch button,
+.app-shell[data-theme='dark'] .compare-toggle strong {
+  color: var(--ink);
+  background-color: #101b2d;
+  border-color: var(--line);
+}
+
+.app-shell[data-theme='dark'] .suggestion-option { color: var(--ink); }
+.app-shell[data-theme='dark'] .suggestion-option:hover,
+.app-shell[data-theme='dark'] .suggestion-option:focus-visible { background: #253650; }
+.app-shell[data-theme='dark'] .suggestion-option__pin,
+.app-shell[data-theme='dark'] .history-empty__icon { background: #153347; }
+.app-shell[data-theme='dark'] .data-note p { color: #b7c3d8; }
+.app-shell[data-theme='dark'] .data-note > a,
+.app-shell[data-theme='dark'] .site-footer__credits a,
+.app-shell[data-theme='dark'] .workspace-footer a { color: #69c7ee; }
+.app-shell[data-theme='dark'] .site-footer { border-color: var(--line); }
+.app-shell[data-theme='dark'] .site-footer__credits strong { color: #e4ebf6; }
+.app-shell[data-theme='dark'] .data-note__mark { background: #101c56; }
+.app-shell[data-theme='dark'] .weather-tabs { border-color: var(--line); }
+.app-shell[data-theme='dark'] .weather-tabs button.is-active { color: #fff; }
+.app-shell[data-theme='dark'] .weather-tabs button small { color: #83d4f5; background: #153347; }
+.app-shell[data-theme='dark'] .tip-card--warning { background: #36252a; }
+.app-shell[data-theme='dark'] .tips-data-note {
+  border-color: var(--line);
+  color: #c2cde0;
+  background: #1b2a40;
+}
+.app-shell[data-theme='dark'] .safety-pill { color: #ffc09d; background: #42291f; }
+.app-shell[data-theme='dark'] .history-filters__top,
+.app-shell[data-theme='dark'] .history-filters__bottom,
+.app-shell[data-theme='dark'] .period-fieldset--compare { border-color: var(--line); }
+.app-shell[data-theme='dark'] .period-fieldset input { color-scheme: dark; }
+.app-shell[data-theme='dark'] .history-error { border-color: #6b423c; color: #ffd0c1; background: #392522; }
+.app-shell[data-theme='dark'] .metric-switch button.is-active { color: #eef5ff; background: #263652; }
+.app-shell[data-theme='dark'] .metric-switch button:hover { color: #fff; }
+.app-shell[data-theme='dark'] .chart-footnote { border-color: var(--line); }
+.app-shell[data-theme='dark'] .history-stat__icon { background: #3a3023; }
+.app-shell[data-theme='dark'] .history-stat__icon--humidity,
+.app-shell[data-theme='dark'] .history-stat__icon--rain { background: #153347; }
+.app-shell[data-theme='dark'] .history-stat__icon--variation { background: #1c382d; }
+.app-shell[data-theme='dark'] .inline-back { color: #c6d2e5; }
+.app-shell[data-theme='dark'] .map-weather-chip,
+.app-shell[data-theme='dark'] .map-location-chip {
+  border-color: #45536b;
+  color: #e6edf7;
+  background: rgba(17, 28, 47, .95);
+}
+.app-shell[data-theme='dark'] .map-weather-chip strong { color: #eef4ff; }
+.app-shell[data-theme='dark'] .map-weather-chip small { color: #c1ccdc; }
+.app-shell[data-theme='dark'] .map-tile-fallback { background: #101c2d; }
+.app-shell[data-theme='dark'] .map-tile-fallback__grid { opacity: .18; }
+.app-shell[data-theme='dark'] .map-tile-fallback__marker { color: #e5edf8; }
+.app-shell[data-theme='dark'] .map-tile-fallback__marker span { color: #b8c5d9; }
+.app-shell[data-theme='dark'] .loading-state strong { color: var(--navy); }
+.app-shell[data-theme='dark'] .loading-state p { color: #b6c2d6; }
+.app-shell[data-theme='dark'] .error-state { border-color: #674238; background: #30221f; }
+.app-shell[data-theme='dark'] .error-state strong { color: #ffd2bf; }
+.app-shell[data-theme='dark'] .error-state p { color: #dbc0b5; }
+.app-shell[data-theme='dark'] .recharts-cartesian-grid line { stroke: #35445e !important; }
+.app-shell[data-theme='dark'] .recharts-cartesian-axis-tick-value { fill: #c1cde0 !important; }
+.app-shell[data-theme='dark'] .recharts-default-tooltip {
+  border-color: #43516a !important;
+  color: #e6edf7 !important;
+  background: #172338 !important;
+}
+.app-shell[data-theme='dark'] .history-tooltip { border-color: #43516a; color: #e6edf7; background: rgba(23,35,56,.98); box-shadow: 0 8px 26px rgba(0,0,0,.36); }
+.app-shell[data-theme='dark'] .history-tooltip__label { color: #f1f5fb; }
+.app-shell[data-theme='dark'] .history-stat__summary:hover .history-stat__heading > small { color: #fff; }
+.app-shell[data-theme='dark'] .history-stat__toggle-icon { color: #bdc9dc; }
+
+.app-shell[data-theme='dark'] .search-form__submit,
+.app-shell[data-theme='dark'] .primary-button,
+.app-shell[data-theme='dark'] .error-state button,
+.app-shell[data-theme='dark'] .map-tile-fallback > a {
+  color: #071526;
+  background: #76c6eb;
+}
+.app-shell[data-theme='dark'] .search-form__submit:hover,
+.app-shell[data-theme='dark'] .primary-button:hover:not(:disabled) { color: #071526; background: #9adcf7; }
+.app-shell[data-theme='dark'] .leaflet-control-zoom a {
+  border-color: #40506a;
+  color: #e5edf8;
+  background: #172338;
+}
+.app-shell[data-theme='dark'] .leaflet-control-zoom a:hover { background: #263651; }
+.app-shell[data-theme='dark'] .leaflet-control-attribution {
+  color: #26314a;
+  background: rgba(245, 248, 252, .9);
+}
+.app-shell[data-theme='dark'] .leaflet-control-attribution a { color: #154b73; }
+
+.leaflet-control-attribution { font-size: 11px !important; line-height: 1.4; }
+.leaflet-control-zoom a { width: 32px !important; height: 32px !important; font-size: 20px !important; line-height: 30px !important; }
+.map-location-chip { right: auto; left: 12px; }
+.map-panel__caption { min-height: 42px; }
+.site-footer__credits,
+.workspace-footer,
+.tips-disclaimer,
+.forecast-note,
+.chart-footnote,
+.history-data-note { line-height: 1.6; }
+
+@media (max-width: 640px) {
+  .theme-toggle { min-height: 38px; gap: 6px; padding: 7px 8px; font-size: 12px; }
+  .theme-toggle svg { width: 16px; height: 16px; }
+  .site-footer__credits,
+  .workspace-footer,
+  .search-caption,
+  .tips-disclaimer,
+  .forecast-note,
+  .chart-footnote,
+  .history-data-note,
+  .report-title p,
+  .report-title__source,
+  .history-filters__bottom p,
+  .period-fieldset legend,
+  .period-fieldset label,
+  .map-panel__caption,
+  .tips-data-note { font-size: 13px; }
+  .metric-card__copy small,
+  .forecast-card__day,
+  .forecast-card__condition,
+  .forecast-card__open,
+  .metric-switch button,
+  .clear-button { font-size: 12px; }
+  .back-button { font-size: 12px; }
+  .workspace-header .theme-toggle { width: 38px; min-width: 38px; flex: 0 0 38px; padding-inline: 7px; }
+  .workspace-header .theme-toggle span { display: none; }
+  .workspace-location small { font-size: 10px; }
+  .workspace-location strong { font-size: 12px; }
+  .workspace-location em { font-size: 11px; }
+  .weather-tabs button { font-size: 12px; }
+  .weather-tabs button small { font-size: 10px; }
+  .weather-hero__date { font-size: 12px; letter-spacing: .06em; }
+  .weather-hero__aside-label { font-size: 10px; }
+  .weather-hero__aside-summary span { font-size: 12px; }
+  .weather-hero__probability { font-size: 11px; }
+  .weather-facts__units { font-size: 12px; }
+  .history-intro p { font-size: 13px; }
+  .data-note p { font-size: 12px; }
+  .map-loading { font-size: 12px; }
+  .safety-pill { font-size: 12px; }
+  .tips-panel__heading { flex-wrap: wrap; }
+  .site-footer__credits { gap: 7px; }
+  .map-panel__caption { gap: 5px; }
+  .map-panel__caption-coordinates { white-space: nowrap; }
+  .leaflet-control-attribution { max-width: calc(100vw - 70px); font-size: 11px !important; }
+}
+
+
+.app-shell[data-theme='dark'] .chart-granularity { background: #101b2d; }
+.app-shell[data-theme='dark'] .chart-granularity__label { color: #b7c3d8; }
+.app-shell[data-theme='dark'] .chart-granularity__button { color: #b7c3d8; }
+.app-shell[data-theme='dark'] .chart-granularity__button:hover { color: #fff; }
+.app-shell[data-theme='dark'] .chart-granularity__button.is-active { color: #eef5ff; background: #263652; }
+.app-shell[data-theme='dark'] .forecast-card__precipitation { border-color: var(--line); }
+.app-shell[data-theme='dark'] .forecast-card__precipitation small,
+.app-shell[data-theme='dark'] .forecast-card__probability { color: #b7c3d8; }
+.app-shell[data-theme='dark'] .forecast-card__precipitation strong,
+.app-shell[data-theme='dark'] .forecast-card__probability strong { color: #e6edf7; }
+.app-shell[data-theme='dark'] .inline-back--prominent { border-color: #385773; color: #e0f1fb; background: #19334a; box-shadow: none; }
+.app-shell[data-theme='dark'] .inline-back--prominent:hover { border-color: #5486a5; color: #fff; background: #22425c; }
+.app-shell[data-theme='dark'] .history-stat__series { border-color: var(--line); }
+.app-shell[data-theme='dark'] .history-stat__series-label { color: #b7c3d8; }
+.app-shell[data-theme='dark'] .history-stat__series-detail { color: #aebbd0; }
+.app-shell[data-theme='dark'] .chart-toolbar { border-color: var(--line); background: #101b2d; }
+.app-shell[data-theme='dark'] .chart-series-label { border-color: var(--line); background: #172338; }
+.app-shell[data-theme='dark'] .chart-series-label strong { color: #e6edf7; }
+
+
+/* Atalho sazonal global para retornar ao topo em qualquer tela. */
+.scroll-top {
+  position: fixed;
+  z-index: 900;
+  right: 24px;
+  bottom: 24px;
+  display: inline-flex;
+  min-width: 76px;
+  height: 42px;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  padding: 0 12px;
+  border: 1px solid #d9e8d8;
+  border-radius: 24px;
+  color: #315d4b;
+  background: rgba(250, 255, 247, .96);
+  box-shadow: 0 7px 22px rgba(15, 32, 48, .18);
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(10px);
+  transition: opacity .22s ease, transform .22s ease, background .18s ease, box-shadow .18s ease;
+}
+
+.scroll-top.is-visible {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateY(0);
+}
+
+.scroll-top:hover,
+.scroll-top:focus-visible {
+  border-color: #a9cdb3;
+  color: #244b3b;
+  background: #f0faed;
+  box-shadow: 0 9px 25px rgba(15, 32, 48, .23);
+  outline: none;
+}
+
+.scroll-top__leaf { color: #6b9d70; }
+.scroll-top__arrow { margin-left: -3px; }
+.scroll-top span {
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: .01em;
+}
+
+:root[data-theme='dark'] .app-shell .scroll-top {
+  border-color: #45665b;
+  color: #e4f4e7;
+  background: rgba(27, 52, 49, .96);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, .34);
+}
+:root[data-theme='dark'] .app-shell .scroll-top:hover,
+:root[data-theme='dark'] .app-shell .scroll-top:focus-visible {
+  border-color: #76a98a;
+  color: #fff;
+  background: #294f45;
+}
+:root[data-theme='dark'] .app-shell .scroll-top__leaf { color: #a5d5a6; }
+
+/* No menu, a variável --navy é clara no tema escuro para os textos.
+   A logo, porém, precisa acompanhar o fundo azul do cabeçalho. */
+.app-shell[data-theme='dark'] .home-page .site-header .brand-lockup__image {
+  background: #101c56;
+}
+.app-shell[data-theme='dark'] .home-page .site-footer .brand-lockup__image {
+  background: transparent;
+}
+
+@media (max-width: 640px) {
+  .scroll-top { right: 14px; bottom: 14px; min-width: 68px; height: 39px; padding-inline: 10px; }
+}
